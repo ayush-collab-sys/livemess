@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#71352f">
+  <title>MessMind AI — Manager dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js?v=20260927-production-timeline" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#overview" aria-label="MessMind AI home">
+        <span class="brand-mark" aria-hidden="true">MM</span>
+        <span><strong>MessMind </strong><small>Campus dining operations</small></span>
+      </a>
+      <nav class="nav-list">
+        <a class="nav-link active" href="#overview"><span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>Overview</a>
+        <a class="nav-link" href="#forecast"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18V5m0 13h18M6 15l4-4 3 2 6-7"/></svg></span>Demand forecast</a>
+        <a class="nav-link" href="#food-plan"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v7m-3-7v4a3 3 0 0 0 6 0V3M6 10v11m9-18v18m0-18c3 2 4 5 4 9h-4"/></svg></span>Food planning</a>
+        <a class="nav-link" href="#food-items"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16l-1.5 12h-13L4 8Zm2 0 2-4h8l2 4M8 12h8m-7 4h6"/></svg></span>Food Items</a>
+        <a class="nav-link" href="#waste"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M10 11v6m4-6v6M5 7l1 14h12l1-14M9 7V4h6v3"/></svg></span>Waste analytics</a>
+        <a class="nav-link" href="#comparison"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18V6m0 12h16M7 15l4-5 3 3 5-7"/><circle cx="19" cy="6" r="1.5"/></svg></span>Prediction vs actual</a>
+        <a class="nav-link" href="#insights"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1"/><circle cx="12" cy="12" r="4"/></svg></span>AI Insights</a>
+        <a class="nav-link" href="#actions"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14M5 12h14M5 18h9"/></svg></span>Action center</a>
+        <a class="nav-link" href="#simulator"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5m0 14h16M7 15l4-4 3 2 5-6"/><circle cx="19" cy="7" r="2"/></svg></span>Demand Simulator</a>
+        <a class="nav-link" href="#feedback"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v12H9l-5 4V5Z"/><path d="M8 10h8m-8 4h5"/></svg></span>Student Feedback</a>
+        <a class="nav-link" href="#settings"><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-1.6 2.8-.2-.1a1.7 1.7 0 0 0-1.8.1l-.2.1h-3.2l-.1-.2a1.7 1.7 0 0 0-1.6-1l-.2.1-2.8-1.6.1-.2a1.7 1.7 0 0 0-.1-1.8l-.1-.2v-3.2l.2-.1a1.7 1.7 0 0 0 1-1.6l-.1-.2 1.6-2.8.2.1a1.7 1.7 0 0 0 1.8-.1l.2-.1h3.2l.1.2a1.7 1.7 0 0 0 1.6 1l.2-.1 2.8 1.6-.1.2a1.7 1.7 0 0 0 .1 1.8l.1.2V15z" transform="translate(-1 -1) scale(1.08)"/></svg></span>Settings</a>
+        <div class="nav-section-label">DATA MANAGEMENT</div>
+        <a class="nav-link" href="#data-collection"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5C4 4.1 7.6 3 12 3s8 1.1 8 2.5S16.4 8 12 8 4 6.9 4 5.5Z"/><path d="M4 5.5v6C4 12.9 7.6 14 12 14c1.1 0 2.1-.1 3-.3M20 5.5v4M4 11.5v6C4 18.9 7.6 20 12 20c1.2 0 2.3-.1 3.3-.4"/><circle cx="18" cy="17" r="3"/><path d="M18 15.5v3m-1.5-1.5h3"/></svg></span>Data Collection</a>
+        <a class="nav-link" href="#cost-management"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M16.5 7.5c-.8-1-2.1-1.5-4.2-1.5-2.3 0-4 1.1-4 2.7 0 4.2 8.2 1.8 8.2 5.8 0 1.7-1.7 3-4.4 3-2 0-3.6-.6-4.6-1.8"/><circle cx="12" cy="12" r="9"/></svg></span>Cost Management</a>
+      </nav>
+      <div class="sidebar-footer"><span>Campus dining<br>operations</span></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="selectors">
+          <label class="sr-only" for="mess-select">Select mess</label>
+          <select id="mess-select"><option>North Campus Mess</option><option>South Campus Mess</option></select>
+          <label class="sr-only" for="meal-select">Select meal</label>
+          <select id="meal-select"><option>Lunch</option><option>Breakfast</option><option>Dinner</option><option>Snacks</option></select>
+        </div>
+        <div class="header-date"><span class="header-date-label">CURRENT DATE &amp; TIME · IST</span><strong id="ist-clock" aria-live="off">Loading India time…</strong></div>
+        <div class="profile"><button class="icon-button notification" aria-label="Notifications"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-8 12h4"/></svg><i></i></button><span class="avatar" aria-label="MessMind food profile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 14.5h18M5 14.5a7 7 0 0 1 14 0M4 18h16M8 7V4m4 3V3m4 4V4"/></svg></span><span>Mess Manager</span><span class="chevron">⌄</span></div>
+      </header>
+
+      <div class="app-view active" id="overview">
+      <section class="page-heading">
+        <div><p class="eyebrow">OPERATIONS OVERVIEW <span class="demo-label">DEMO DATA</span></p><h1>Mess Overview</h1><p class="subheading"><span id="current-service-label">Lunch service</span> <span class="heading-divider">·</span> <span class="service-status"><i></i><span id="current-service-status">Menu time syncing</span></span></p></div>
+        <button class="primary-button" id="generate-plan"><span aria-hidden="true">+</span> Generate food plan</button>
+      </section>
+
+      <section class="meal-timeline panel" aria-labelledby="meal-timeline-title">
+        <div class="panel-heading"><div><h2 id="meal-timeline-title">Today's meal timeline</h2><p>Breakfast, lunch, snacks and dinner follow the campus service clock.</p></div><span class="timeline-note" id="kitchen-window-note">Kitchen hours 05:30–22:00 IST</span></div>
+        <div class="meal-timeline-grid" id="meal-timeline-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="operations-status" aria-label="Service status"><div><span>Mess status</span><strong id="mess-status-value">SYNCING</strong></div><div><span>Kitchen status</span><strong id="kitchen-status-value">SYNCING</strong><small id="kitchen-status-detail">Checking the India time window</small></div><div><span>Next service</span><strong id="next-service-value">SYNCING</strong></div><div><span>Current time (IST)</span><strong id="ist-status-clock">Loading…</strong></div></section>
+
+      <section class="kpi-grid" aria-label="Today's key metrics">
+        <article class="kpi-card"><div class="kpi-top"><span>Expected diners</span><span class="metric-context">TODAY</span></div><strong class="kpi-value" data-metric="diners">470</strong><span class="kpi-note positive">↑ 6% <span>vs. last Tuesday</span></span></article>
+        <article class="kpi-card"><div class="kpi-top"><span>Checked in</span><span class="metric-context">SAMPLE</span></div><strong class="kpi-value">316 <small>/ 470</small></strong><div class="progress-row"><span class="progress"><i style="width:67%"></i></span><small>67%</small></div><span class="kpi-note muted">154 yet to check in · sample</span></article>
+        <article class="kpi-card"><div class="kpi-top"><span>Forecast error</span><span class="metric-context">LAST 30 DAYS</span></div><strong class="kpi-value">6.4%</strong><span class="kpi-note positive">↓ 2.8 pts <span>vs. last week</span></span></article>
+        <article class="kpi-card"><div class="kpi-top"><span>Today's waste</span><span class="metric-context">THIS WEEK</span></div><strong class="kpi-value">18.6 <small>kg</small></strong><span class="kpi-note positive">↑ 12% <span>vs. previous week</span></span></article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel chart-panel" id="overview-forecast-chart">
+          <div class="panel-heading"><div><h2>Attendance and cuisine trend</h2><p>Daily forecast and recorded check-ins · diners</p></div><label class="chart-controls" for="attendance-days"><span class="sr-only">Trend period</span><select class="small-button date-control" id="attendance-days"><option value="7">7 days</option><option value="14" selected>14 days</option><option value="30">30 days</option></select></label></div>
+          <div class="chart-wrap">
+            <div class="y-axis"><span>600</span><span>450</span><span>300</span><span>150</span><span>0</span></div>
+            <svg class="chart" id="attendance-chart" viewBox="0 0 700 270" role="img" aria-label="Daily forecast and attendance totals for the selected period">
+              <defs><linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#0284c7" stop-opacity=".14"/><stop offset="1" stop-color="#0284c7" stop-opacity="0"/></linearGradient></defs>
+              <g class="grid-lines"><path d="M0 18H700 M0 72H700 M0 126H700 M0 180H700 M0 234H700"/></g>
+              <path class="forecast-area" d="M0 226 C50 222 82 216 117 208 S197 183 233 174 S315 138 350 128 S428 77 467 65 S547 61 583 62 S660 61 700 61 L700 234 L0 234Z"/>
+              <path class="forecast-line" d="M0 226 C50 222 82 216 117 208 S197 183 233 174 S315 138 350 128 S428 77 467 65 S547 61 583 62 S660 61 700 61"/>
+              <path class="actual-line" d="M0 229 C50 227 82 219 117 217 S197 196 233 193 S315 158 350 153 S428 124 467 120"/>
+              <g class="dot-green"><circle cx="0" cy="226" r="4"/><circle cx="117" cy="208" r="4"/><circle cx="233" cy="174" r="4"/><circle cx="350" cy="128" r="4"/><circle cx="467" cy="65" r="4"/><circle cx="583" cy="62" r="4"/><circle cx="700" cy="61" r="4"/></g>
+              <g class="dot-blue"><circle cx="0" cy="229" r="4"/><circle cx="117" cy="217" r="4"/><circle cx="233" cy="193" r="4"/><circle cx="350" cy="153" r="4"/><circle cx="467" cy="120" r="4"/></g>
+            </svg>
+            <div class="x-axis"><span>10:00</span><span>11:00</span><span>12:00</span><span>13:00</span><span>14:00</span><span>15:00</span><span>16:00</span></div>
+          </div>
+          <div class="legend"><span><i class="legend-dot green"></i>Forecast</span><span><i class="legend-dot blue"></i>Recorded attendance</span><span class="chart-updated" id="attendance-chart-note">Loading daily records…</span></div>
+          <div class="table-scroll trend-table-wrap"><table class="data-table"><thead><tr><th>Date</th><th>Meal</th><th>Cuisine / dishes served</th><th>Attendance</th><th>Forecast</th></tr></thead><tbody id="attendance-timeline"><tr class="empty-row"><td colspan="5">Loading service history…</td></tr></tbody></table></div>
+        </article>
+
+        <article class="panel recommendation" id="overview-insights">
+          <div class="panel-heading"><h2>Today’s plan</h2><span class="demo-label">SAMPLE PLAN</span></div>
+          <div class="recommendation-callout"><span>Example plan for <strong id="recommended-diners">470</strong> diners</span><small>Illustrative estimate · verify before preparation</small></div>
+          <div class="insight-note"><span>!</span><p>Sample figures only. Confirm current attendance and the selected campus menu before preparing food.</p></div>
+          <div class="menu-heading"><h3 id="menu-service-title">North Campus · Lunch · Thu</h3><span id="current-menu-time">Loading IST menu time…</span></div>
+          <ul class="menu-list" id="food-plan-list">
+            <li><span class="menu-category veg-category">Veg</span><span>Dal tadka</span></li>
+            <li><span class="menu-category nonveg-category">Non-veg</span><span>Not served today</span></li>
+          </ul>
+          <button class="text-button" id="edit-menu">Review menu <span>→</span></button>
+        </article>
+      </section>
+
+      <section class="process-panel" id="overview-waste" aria-label="Service readiness">
+        <div class="process-intro"><h2>Service readiness</h2><p>Lunch preparation is underway</p></div>
+        <div class="process-step"><span class="step-icon">01</span><div><strong>Forecast</strong><small>470 diners<br>expected</small></div></div><span class="step-arrow">→</span>
+        <div class="process-step"><span class="step-icon pale">02</span><div><strong>Prepare</strong><small>Plan menu<br>for service</small></div></div><span class="step-arrow">→</span>
+        <div class="process-step"><span class="step-icon pale">03</span><div><strong>Serve</strong><small>Lunch service<br>in progress</small></div></div><span class="step-arrow">→</span>
+        <div class="process-step"><span class="step-icon pale">04</span><div><strong>Review</strong><small>18.6 kg saved<br>this week</small></div></div>
+        <div class="impact-note"><span>↗</span><strong>Waste down 12%<br>this week</strong></div>
+      </section>
+      <footer class="page-footer">MessMind AI <span>•</span> North Campus · Lunch service</footer>
+      </div>
+
+      <section class="waste-control-bar" id="waste-control-bar" aria-labelledby="waste-control-title">
+        <div class="waste-control-icon">♻</div>
+        <div class="waste-control-copy"><span class="eyebrow">WASTE REDUCTION CONTROL</span><h2 id="waste-control-title">Waiting for measured kitchen records</h2><p id="waste-control-detail">Record dish-level waste to unlock an evidence-based batch recommendation.</p></div>
+        <div class="waste-control-metric"><span>Next action</span><strong id="waste-control-next">Collect 3 comparable services</strong></div>
+        <button class="secondary-button" id="waste-control-refresh" type="button">Refresh recommendation</button>
+      </section>
+      <section class="app-view" id="forecast" aria-labelledby="forecast-title">
+        <div class="page-heading"><div><p class="eyebrow">DEMAND PLANNING</p><h1 id="forecast-title">Demand forecast</h1><p class="subheading">Attendance outlook for the selected campus and service.</p></div></div>
+        <div class="kpi-grid page-metrics">
+          <article class="kpi-card"><div class="kpi-top"><span>Expected diners</span><span class="metric-context">TODAY</span></div><strong class="kpi-value">470</strong><span class="kpi-note positive">↑ 6% <span>vs. last Tuesday</span></span></article>
+          <article class="kpi-card"><div class="kpi-top"><span>Forecast confidence</span><span class="metric-context">SAMPLE</span></div><strong class="kpi-value">Not set</strong><span class="kpi-note muted">No live model connected</span></article>
+          <article class="kpi-card"><div class="kpi-top"><span>Forecast error</span><span class="metric-context">LAST 30 DAYS</span></div><strong class="kpi-value">6.4%</strong><span class="kpi-note positive">↓ 2.8 pts <span>vs. last week</span></span></article>
+        </div>
+        <article class="panel page-panel forecast-table-panel"><div class="panel-heading"><div><h2>Hourly attendance forecast</h2><p><span id="forecast-campus">North Campus</span> · <span id="forecast-service">Lunch</span> · current clock <span data-current-ist></span></p></div><span class="demo-label">SAMPLE FORECAST</span></div><div class="table-scroll"><table class="data-table"><thead><tr><th>Service time (IST)</th><th>Forecast diners</th><th>Sample check-ins</th><th>Variance</th></tr></thead><tbody><tr><td>10:00</td><td>22</td><td>14</td><td>−8</td></tr><tr><td>11:00</td><td>72</td><td>47</td><td>−25</td></tr><tr><td>12:00</td><td>167</td><td>114</td><td>−53</td></tr><tr><td>13:00</td><td>294</td><td>225</td><td>−69</td></tr><tr class="current-row"><td>14:00</td><td>470</td><td>316</td><td>−154</td></tr></tbody></table></div><p class="table-note">All figures are sample data. Service-time labels are in IST; they do not represent live check-ins.</p></article>
+        <article class="panel page-panel explanation-panel" id="forecast-explanation"><div class="panel-heading"><div><h2>Why this forecast?</h2><p>Example contributors for a 470-diner sample forecast.</p></div><span class="demo-label">SIMULATED EXPLANATION</span></div><div class="factor-list"><div><span>Historical Tuesday pattern</span><strong>+18</strong></div><div><span>Current attendance trend</span><strong>+11</strong></div><div><span>Hostel occupancy</span><strong>+7</strong></div><div><span>Meal popularity</span><strong>+4</strong></div><div><span>Recent no-show rate</span><strong class="negative">−10</strong></div><div><span>Weather / event adjustment</span><strong class="negative">−5</strong></div><div class="factor-total"><span>Predicted attendance</span><strong>470</strong></div></div><p class="table-note">Illustrative factors only; not generated by a connected ML model.</p></article>
+        <article class="panel page-panel campus-context"><div class="panel-heading"><div><h2>Campus context</h2><p>Upcoming service considerations</p></div><span class="demo-label">SAMPLE CONTEXT</span></div><div class="context-line"><strong>Tomorrow</strong><span>Placement drive</span></div><div class="context-line"><strong>Similar event attendance</strong><span>−14%</span></div><div class="context-line"><strong>Forecast adjustment</strong><span class="positive">Applied in simulation</span></div><button class="text-button" data-go-view="simulator">Adjust context in Demand Simulator <span>→</span></button></article>
+      </section>
+
+      <section class="app-view" id="food-plan" aria-labelledby="food-plan-title">
+        <div class="page-heading"><div><p class="eyebrow">DAILY MENU</p><h1 id="food-plan-title">Food planning</h1><p class="subheading">Campus menus organized by service and dietary type.</p></div><span class="demo-label">DEMO MENU</span></div>
+        <div class="planning-context"><span class="service-status"><i></i> Menu for selected campus</span><span id="food-plan-campus-label">North Campus Mess</span></div>
+        <article class="panel page-panel weekly-menu-panel"><div class="panel-heading"><div><h2>Weekly menu</h2><p>Veg and non-veg options by day and service.</p></div><span class="weekend-label" id="weekend-special-note" hidden>Weekend special</span></div><div class="weekday-picker" id="weekday-picker" role="group" aria-label="Choose menu day"><button type="button" data-weekday="Monday">Mon</button><button type="button" data-weekday="Tuesday">Tue</button><button type="button" data-weekday="Wednesday">Wed</button><button type="button" data-weekday="Thursday" aria-pressed="true">Thu</button><button type="button" data-weekday="Friday">Fri</button><button type="button" data-weekday="Saturday">Sat</button><button type="button" data-weekday="Sunday">Sun</button></div><div class="weekly-service-grid" id="weekly-menu-grid" aria-live="polite"></div><p class="table-note">Non-veg service is available Monday, Wednesday, Friday and Sunday only.</p></article>
+        <article class="panel page-panel"><div class="panel-heading"><div><h2>Production plan</h2><p>Illustrative kitchen quantities for 470 expected diners.</p></div><span class="demo-label">SAMPLE PLAN</span></div><div class="table-scroll"><table class="data-table"><thead><tr><th>Ingredient / item</th><th>Planned quantity</th><th>Planning note</th></tr></thead><tbody><tr><td>Rice</td><td>65 kg</td><td>Standard serving assumption</td></tr><tr><td>Dal</td><td>55 kg</td><td>Lunch menu component</td></tr><tr><td>Roti</td><td>940 pieces</td><td>Estimated uptake</td></tr><tr><td>Paneer</td><td>42 kg</td><td>Vegetarian main</td></tr><tr><td>Seasonal vegetables</td><td>38 kg</td><td>Menu dependent</td></tr></tbody></table></div><p class="table-note">Sample planning assumptions; manager review is required before kitchen use.</p></article>
+      </section>
+
+      <section class="app-view" id="food-items" aria-labelledby="food-items-title">
+        <div class="page-heading"><div><p class="eyebrow">MENU CATALOG</p><h1 id="food-items-title">Food Items</h1><p class="subheading">Browse dishes used across campus menus.</p></div><span class="demo-label">SAMPLE CATALOG</span></div>
+        <div class="food-catalog-tools"><label for="food-item-search">Search dishes<input id="food-item-search" type="search" placeholder="Search food items"></label><label for="food-item-type">Dietary type<select id="food-item-type"><option value="all">All items</option><option value="Veg">Veg</option><option value="Non-veg">Non-veg</option></select></label></div>
+        <div class="food-catalog-grid" id="food-catalog-grid" aria-live="polite"></div>
+        <article class="panel page-panel"><div class="panel-heading"><div><h2>Menu intelligence</h2><p>Example demand and feedback signals for menu review.</p></div><span class="demo-label">SAMPLE METRICS</span></div><div class="table-scroll"><table class="data-table"><thead><tr><th>Item</th><th>Popularity</th><th>Avg. consumption</th><th>Waste risk</th><th>Student rating</th><th>Demand trend</th></tr></thead><tbody><tr><td>Paneer</td><td>High</td><td>—</td><td>Low</td><td>4.7 / 5</td><td>Stable</td></tr><tr><td>Dal</td><td>Medium</td><td>—</td><td>High</td><td>3.4 / 5</td><td>Review</td></tr><tr><td>Rice</td><td>High</td><td>—</td><td>Medium</td><td>4.2 / 5</td><td>Stable</td></tr></tbody></table></div><button class="text-button" data-go-view="insights">View menu insights →</button><p class="table-note">Consumption averages are not connected to measured records yet.</p></article>
+        <p class="table-note">Sample menu catalog. Availability depends on campus, service and day.</p>
+      </section>
+
+      <section class="app-view" id="waste" aria-labelledby="waste-title">
+  <div class="page-heading"><div><p class="eyebrow">RESOURCE MONITORING</p><h1 id="waste-title">Waste analysis</h1><p class="subheading">Prepared and leftover food from the selected campus, summarized for the last 7 days.</p></div><span class="demo-label" id="waste-data-label">SYNTHETIC DEMO DATA</span></div>
+  <article class="panel page-panel" aria-labelledby="waste-calculator-title">
+    <div class="panel-heading"><div><h2 id="waste-calculator-title">Calculate a service</h2><p>Demo values are prefilled; change them to preview another service.</p></div></div>
+    <form id="waste-calculator" class="settings-fields">
+      <label for="waste-input-prepared">Food prepared (kg)<input id="waste-input-prepared" name="prepared" type="number" min="0.1" step="0.1" value="124" required></label>
+      <label for="waste-input-leftover">Food leftover (kg)<input id="waste-input-leftover" name="leftover" type="number" min="0" step="0.1" value="45" required></label>
+      <p class="table-note" id="waste-calculator-message" aria-live="polite">Demo preview. Edit either value to update the result; it is not saved to service history.</p>
+      <button class="primary-button" type="submit">Show results</button>
+    </form>
+  </article>
+  <article class="panel page-panel" aria-labelledby="waste-record-title">
+    <div class="panel-heading"><div><h2 id="waste-record-title">Record dish-level waste</h2><p>Save measured kitchen quantities so the system can identify avoidable waste and its cause.</p></div><span class="demo-label">SAVED TO OPERATIONS DATA</span></div>
+    <form id="waste-record-form" class="settings-fields">
+      <label for="waste-record-date">Service date<input id="waste-record-date" name="date" type="date" required></label>
+      <label for="waste-record-meal">Meal service<select id="waste-record-meal" name="meal" required><option>Breakfast</option><option>Lunch</option><option>Dinner</option><option>Snacks</option></select></label>
+      <label for="waste-record-dish">Dish<input id="waste-record-dish" name="dish" maxlength="100" placeholder="e.g. Dal tadka" required></label>
+      <label for="waste-record-prepared">Prepared (kg)<input id="waste-record-prepared" name="prepared_kg" type="number" min="0" step="0.1" required></label>
+      <label for="waste-record-served">Served (kg)<input id="waste-record-served" name="served_kg" type="number" min="0" step="0.1" required></label>
+      <label for="waste-record-leftover">Leftover (kg)<input id="waste-record-leftover" name="leftover_kg" type="number" min="0" step="0.1" required></label>
+      <label for="waste-record-avoidable">Avoidable part (kg)<input id="waste-record-avoidable" name="avoidable_kg" type="number" min="0" step="0.1" required></label>
+      <label for="waste-record-reason">Main reason<select id="waste-record-reason" name="reason" required><option value="overproduction">Overproduction</option><option value="plate_return">Plate returns</option><option value="spoilage">Spoilage</option><option value="preparation">Preparation loss</option><option value="other">Other</option></select></label>
+      <label for="waste-record-source">Data source<select id="waste-record-source" name="source" required><option>Kitchen weighing scale</option><option>Kitchen tally</option><option>Manual manager entry</option></select></label>
+      <p class="table-note" id="waste-record-message" aria-live="polite">Enter measured values. Avoidable waste cannot exceed leftover waste.</p>
+      <button class="primary-button" type="submit">Save waste record</button>
+    </form>
+  </article>
+  <article class="panel page-panel simulation-result" id="waste-calculation-result" aria-live="polite">
+    <div class="panel-heading"><div><h2>Service waste result</h2><p>Calculation preview</p></div></div>
+    <div class="comparison-summary"><div><span>Food prepared</span><strong><span id="waste-result-prepared">—</span> kg</strong></div><div><span>Food leftover</span><strong><span id="waste-result-leftover">—</span> kg</strong></div><div><span>Waste rate</span><strong><span id="waste-result-rate">—</span>%</strong></div></div>
+  </article>
+  <div class="kpi-grid page-metrics">
+    <article class="kpi-card"><div class="kpi-top"><span>Food prepared</span><span class="metric-context">LAST 7 DAYS</span></div><strong class="kpi-value"><span id="waste-prepared">3200.5</span> <small>kg</small></strong></article>
+    <article class="kpi-card"><div class="kpi-top"><span>Food leftover</span><span class="metric-context">LAST 7 DAYS</span></div><strong class="kpi-value"><span id="waste-leftover">129.6</span> <small>kg</small></strong></article>
+    <article class="kpi-card"><div class="kpi-top"><span>Waste rate</span><span class="metric-context">LAST 7 DAYS</span></div><strong class="kpi-value"><span id="waste-rate">4.0</span><small>%</small></strong></article>
+    <article class="kpi-card"><div class="kpi-top"><span>Services analyzed</span><span class="metric-context">LAST 7 DAYS</span></div><strong class="kpi-value" id="waste-service-count">24</strong></article>
+  </div>
+  <article class="panel page-panel"><div class="panel-heading"><div><h2>Service waste results</h2><p id="waste-date-range">2026-09-21 to 2026-09-27 IST · North Campus Mess</p></div></div><div class="table-scroll"><table class="data-table"><thead><tr><th>Service date</th><th>Campus</th><th>Meal</th><th>Prepared</th><th>Leftover</th><th>Waste rate</th></tr></thead><tbody id="waste-records"><tr><td>2026-09-26</td><td>North Campus</td><td>Snacks</td><td>57.9 kg</td><td>5.8 kg</td><td>10.0%</td></tr><tr><td>2026-09-26</td><td>North Campus</td><td>Lunch</td><td>193.9 kg</td><td>3.6 kg</td><td>1.9%</td></tr><tr><td>2026-09-26</td><td>North Campus</td><td>Dinner</td><td>170.4 kg</td><td>4.7 kg</td><td>2.8%</td></tr><tr><td>2026-09-26</td><td>North Campus</td><td>Breakfast</td><td>123.9 kg</td><td>2.5 kg</td><td>2.0%</td></tr></tbody></table></div><p class="table-note" id="waste-analysis-note" aria-live="polite">Synthetic demo results are shown until saved service data is available.</p></article>
+  <article class="panel page-panel"><div class="panel-heading"><div><h2>Waste reduction signals</h2><p>Prioritize dishes and causes with the largest avoidable impact.</p></div><span class="demo-label">MEASURED RECORDS</span></div><div class="table-scroll"><table class="data-table"><thead><tr><th>Dish</th><th>Leftover</th><th>Avoidable</th><th>Records</th></tr></thead><tbody id="waste-detail-records"><tr><td colspan="4">Loading item-level waste…</td></tr></tbody></table></div><p class="table-note" id="waste-detail-note">No item-level records have been saved yet.</p></article>
+</section>
+
+      <section class="app-view" id="comparison" aria-labelledby="comparison-title">
+        <div class="page-heading"><div><p class="eyebrow">MODEL PERFORMANCE</p><h1 id="comparison-title">Prediction vs actual</h1><p class="subheading">Current lunch forecast compared with check-ins.</p></div></div>
+        <article class="panel page-panel"><div class="panel-heading"><div><h2><span id="comparison-meal">Lunch</span> attendance comparison</h2><p><span id="comparison-campus">North Campus</span> · sample service date · current clock <span data-current-ist></span></p></div><span class="demo-label">SAMPLE DATA</span></div><div class="comparison-bars"><div class="comparison-row"><span>Forecast</span><div class="comparison-track"><i class="forecast-fill"></i></div><strong>470</strong></div><div class="comparison-row"><span>Sample attendance</span><div class="comparison-track"><i class="actual-fill"></i></div><strong>316</strong></div></div><div class="comparison-summary"><div><span>Checked in</span><strong>67% · sample</strong></div><div><span>Remaining</span><strong>154 · sample</strong></div><div><span>Forecast error</span><strong>6.4% · sample</strong></div></div></article>
+        <article class="panel page-panel"><div class="panel-heading"><div><h2>Forecast performance</h2><p>Sample attendance comparisons</p></div><span class="demo-label">DEMO DATA</span></div><div class="table-scroll"><table class="data-table"><thead><tr><th>Service</th><th>Predicted</th><th>Actual</th><th>Error</th></tr></thead><tbody><tr><td>Breakfast</td><td>320</td><td>311</td><td>2.8%</td></tr><tr><td>Lunch</td><td>470</td><td>451</td><td>4.2%</td></tr><tr><td>Dinner</td><td>390</td><td>402</td><td>3.1%</td></tr></tbody></table></div><p class="table-note">Last 7 services: sample error trend 5.1%, 4.6%, 4.2%, 3.8%, 4.4%, 3.3%, 4.2%.</p></article>
+        <article class="panel page-panel"><div class="panel-heading"><div><h2>Predicted vs actual attendance</h2><p>Last 7 sample services · diners</p></div><span class="demo-label">DEMO DATA</span></div><svg class="performance-chart" viewBox="0 0 700 190" role="img" aria-label="Sample predicted and actual attendance over seven services"><path class="performance-grid" d="M20 30H680M20 75H680M20 120H680M20 165H680"/><path class="performance-predicted" d="M30 105 L135 72 L240 87 L345 52 L450 64 L555 40 L660 58"/><path class="performance-actual" d="M30 112 L135 82 L240 93 L345 66 L450 71 L555 53 L660 69"/><g><circle cx="30" cy="105" r="4"/><circle cx="135" cy="72" r="4"/><circle cx="240" cy="87" r="4"/><circle cx="345" cy="52" r="4"/><circle cx="450" cy="64" r="4"/><circle cx="555" cy="40" r="4"/><circle cx="660" cy="58" r="4"/></g><g class="actual-points"><circle cx="30" cy="112" r="4"/><circle cx="135" cy="82" r="4"/><circle cx="240" cy="93" r="4"/><circle cx="345" cy="66" r="4"/><circle cx="450" cy="71" r="4"/><circle cx="555" cy="53" r="4"/><circle cx="660" cy="69" r="4"/></g></svg><div class="legend"><span><i class="legend-dot green"></i>Predicted</span><span><i class="legend-dot blue"></i>Actual</span></div><p class="table-note">Illustrative attendance series; source records are not connected.</p></article>
+        <article class="panel page-panel"><div class="panel-heading"><div><h2>AI Learning</h2><p>Today's lunch: prediction 470 · actual 451 · difference 19 meals</p></div><span class="demo-label">LEARNING SIGNAL</span></div><p class="insight-body">Possible contributing factors include higher no-show rate, lower hostel occupancy and unusual weather. The Demand Simulator currently uses synthetic historical demo rows. Replace them with verified student attendance before using its prediction operationally.</p><button class="primary-button" id="capture-learning">Capture feedback for future model adjustment</button><p class="table-note" id="learning-status" aria-live="polite">No review recorded in this session.</p></article>
+      </section>
+
+      <section class="app-view" id="insights" aria-labelledby="insights-title">
+        <div class="page-heading"><div><p class="eyebrow">SERVICE RECOMMENDATION</p><h1 id="insights-title">Operations insights</h1><p class="subheading">A short readout for today’s lunch service.</p></div></div>
+        <article class="panel page-panel insight-page-card"><div class="panel-heading"><div><h2>Recommended preparation</h2><p><span id="insights-campus">North Campus</span> · <span id="insights-meal">Lunch</span></p></div><span class="demo-label">SAMPLE ESTIMATE</span></div><p class="insight-lead">Example plan: <strong>470 diners</strong>.</p><p class="insight-body">The forecast has not been connected to current attendance or historical service records. Confirm demand and the campus menu before preparing food.</p><button class="text-button" data-go-view="food-plan">Review today’s menu <span>→</span></button></article>
+        <article class="panel page-panel"><div class="panel-heading"><div><h2>Recommended production</h2><p>Illustrative quantities for manager review</p></div><span class="demo-label">SAMPLE PLAN</span></div><div class="waste-breakdown"><div><span>Rice</span><strong>71 kg</strong></div><div><span>Dal</span><strong>58 kg</strong></div><div><span>Roti</span><strong>1,020 pcs</strong></div></div><div class="context-line"><strong>Expected waste</strong><span>4.8 kg · illustrative</span></div><div class="context-line"><strong>Risk</strong><span>Medium · exam schedule uncertainty</span></div><p class="table-note">Clock: <span data-current-ist></span> · sample forecast based on example meal records.</p></article>
+        <div class="action-row"><button class="primary-button" id="approve-demo-plan">Apply food plan</button><button class="secondary-button" id="modify-demo-plan">Modify</button><button class="text-button" data-go-view="forecast">View explanation →</button></div><p class="table-note" id="command-status" aria-live="polite">Approval is recorded only in this browser session; no kitchen system is connected.</p>
+      </section>
+
+      <section class="app-view" id="simulator" aria-labelledby="simulator-title">
+        <div class="page-heading"><div><p class="eyebrow">WHAT-IF PLANNING</p><h1 id="simulator-title">Demand Simulator</h1><p class="subheading">Historical attendance baseline with editable scenario adjustments.</p></div><span class="demo-label">HISTORICAL MODEL</span></div>
+        <article class="panel page-panel"><div class="settings-fields"><label for="sim-attendance">Model baseline / manual fallback<input id="sim-attendance" type="number" min="0" placeholder="Loaded from service history"></label><label for="sim-occupancy">Hostel occupancy (%)<input id="sim-occupancy" type="number" min="0" max="100" value="91"></label><label for="sim-weather">Weather adjustment<select id="sim-weather"><option value="0">Clear (0 diners)</option><option value="-4">Rain (-4 diners)</option><option value="-9">Severe weather (-9 diners)</option></select></label><label for="sim-popularity">Meal popularity<select id="sim-popularity"><option value="1.04">High</option><option value="1">Typical</option><option value=".96">Low</option></select></label><label><span>Campus conditions</span><span class="check-list"><span><input id="sim-exam" type="checkbox"> Exam period</span><span><input id="sim-holiday" type="checkbox"> Holiday</span><span><input id="sim-event" type="checkbox"> Campus event</span></span></label><label for="sim-noshow">Recent no-show rate (%)<input id="sim-noshow" type="number" min="0" max="100" value="4"></label></div><p class="table-note" id="sim-model-status">The model uses verified historical service attendance for the selected campus, meal and IST weekday.</p><button class="primary-button" id="run-simulation">Run scenario</button></article>
+        <article class="panel page-panel simulation-result" id="simulation-results" aria-live="polite"><div class="panel-heading"><div><h2>Scenario estimate</h2><p>Historical baseline adjusted by the assumptions above.</p></div></div><div class="comparison-summary"><div><span>Estimated diners</span><strong id="sim-result-count">—</strong></div><div><span>Planning range</span><strong id="sim-result-range">—</strong></div><div><span>Confidence</span><strong id="sim-result-confidence">Waiting</strong></div></div><p class="table-note" id="sim-result-risk">No attendance estimate has been generated yet.</p></article>
+      </section>
+
+      <section class="app-view" id="feedback" aria-labelledby="feedback-title">
+        <div class="page-heading"><div><p class="eyebrow">DINER EXPERIENCE</p><h1 id="feedback-title">Student Feedback</h1><p class="subheading">Collect service feedback for review by the mess team.</p></div><span class="demo-label">SAVED FOR REVIEW</span></div>
+        <article class="panel page-panel"><p class="feedback-context" id="feedback-context">Loading today’s menu context…</p><form id="feedback-form" class="settings-fields"><label for="feedback-date">Service date<input id="feedback-date" type="date" required></label><label for="feedback-rating">Overall rating<select id="feedback-rating" required><option value="">Choose a rating</option><option>Excellent</option><option>Good</option><option>Average</option><option>Poor</option></select></label><label for="feedback-meal">Meal service<select id="feedback-meal" required><option>Breakfast</option><option>Lunch</option><option>Dinner</option><option>Snacks</option></select></label><label for="feedback-dish">Dish served that service<select id="feedback-dish" required></select></label><label for="feedback-comment">Comment<input id="feedback-comment" maxlength="160" placeholder="Optional note"></label><button class="primary-button" type="submit">Record feedback</button></form></article>
+        <article class="panel page-panel"><div class="panel-heading"><div><h2>Recent feedback</h2><p>Ratings are linked to the campus, service date, meal, menu item and recorded time.</p></div></div><div class="table-scroll"><table class="data-table"><thead><tr><th>Rating</th><th>Meal</th><th>Dish</th><th>Comment</th><th>Recorded (IST)</th></tr></thead><tbody id="feedback-records"><tr><td>Good</td><td>Lunch</td><td>Dal tadka</td><td>Well seasoned</td><td>Sample data</td></tr><tr><td>Average</td><td>Snacks</td><td>Vegetable sandwich</td><td>Bread was dry</td><td>Sample data</td></tr></tbody></table></div><p class="table-note">Use this record with attendance, prepared quantity and leftover quantity for the same date and meal when analysing dining behaviour.</p></article>
+        <article class="panel page-panel"><div class="panel-heading"><div><h2>Menu and dining analysis</h2><p>Feedback is matched to the same campus, date and meal service.</p></div><span class="demo-label">LAST 30 DAYS</span></div><div class="table-scroll"><table class="data-table"><thead><tr><th>Date</th><th>Meal</th><th>Dish</th><th>Responses</th><th>Avg rating</th><th>Attendance</th><th>Leftover</th><th>Waste rate</th></tr></thead><tbody id="feedback-analysis"><tr><td colspan="8">Loading menu analysis…</td></tr></tbody></table></div><p class="table-note">A rating is shown beside measured attendance and kitchen leftovers only when a service record exists for the same date and meal.</p></article>
+      </section>
+
+      <section class="app-view" id="actions" aria-labelledby="actions-title">
+        <div class="page-heading"><div><p class="eyebrow">OPERATIONS QUEUE</p><h1 id="actions-title">AI Action Center</h1><p class="subheading">Priority recommendations for manager review.</p></div><span class="demo-label">SAMPLE ACTIONS</span></div>
+        <article class="panel page-panel"><div class="review-steps"><div><span>01</span><strong>Reduce rice preparation</strong><small>Reason: recent demand below forecast.<br>Evidence: 8.2 kg leftover in sample record.<br>Suggested action: review a 5–8% reduction.</small><button class="secondary-button action-review">Review</button></div><div><span>02</span><strong>Increase roti preparation</strong><small>Reason: sample demand trend +8%.<br>Evidence: illustrative menu signal.<br>Suggested action: compare against service tally.</small><button class="secondary-button action-review">Review</button></div><div><span>03</span><strong>Investigate dal waste</strong><small>Reason: sample waste trend +18%.<br>Evidence: illustrative dish breakdown.<br>Suggested action: review portion and return records.</small><button class="secondary-button action-review">Review</button></div></div><p class="table-note" id="action-center-status" aria-live="polite">No action has been applied. Review does not change production quantities.</p></article>
+      </section>
+
+      <section class="app-view" id="settings" aria-labelledby="settings-title">
+        <div class="page-heading"><div><p class="eyebrow">WORKSPACE</p><h1 id="settings-title">Settings</h1><p class="subheading">Set the campus and service used in the dashboard header.</p></div></div>
+        <article class="panel page-panel settings-panel"><div class="panel-heading"><div><h2>Dashboard defaults</h2><p>These choices update the campus and meal selectors.</p></div></div><div class="settings-fields"><label for="settings-campus">Campus<select id="settings-campus"><option>North Campus Mess</option><option>South Campus Mess</option></select></label><label for="settings-meal">Default service<select id="settings-meal"><option>Lunch</option><option>Breakfast</option><option>Dinner</option><option>Snacks</option></select></label></div><button class="primary-button" id="save-preferences">Apply selections</button></article>
+      </section>
+
+      <section class="app-view" id="data-collection" aria-labelledby="data-collection-title">
+        <div class="page-heading"><div><p class="eyebrow">DATA MANAGEMENT</p><h1 id="data-collection-title">Data collection</h1><p class="subheading">Record service attendance and kitchen quantities.</p></div><span class="demo-label" id="backend-status">CHECKING DATA SYNC</span></div>
+        <article class="panel page-panel data-entry-panel"><div class="panel-heading"><div><h2>Capture service record</h2><p>Use verified check-in, menu and kitchen tally figures.</p></div></div><form id="data-entry-form"><div class="data-entry-fields"><label>Campus<select name="campus" required><option>North Campus Mess</option><option>South Campus Mess</option></select></label><label>Service date<input name="date" type="date" required></label><label>Meal service<select name="meal" required><option>Breakfast</option><option>Lunch</option><option>Dinner</option><option>Snacks</option></select></label><label>Cuisine / dishes served<input name="cuisine" type="text" maxlength="160" placeholder="e.g. Masala dosa, sambar" required></label><label>Forecast diners<input name="forecast" type="number" min="0" placeholder="Verified forecast" required></label><label>Actual attendance<input name="attendance" type="number" min="0" placeholder="Verified actual count" required></label><label>Food prepared (kg)<input name="prepared" type="number" min="0" step="0.1" placeholder="e.g. 168.0" required></label><label>Leftover food (kg)<input name="leftover" type="number" min="0" step="0.1" placeholder="e.g. 18.6" required></label><label>Data source<select name="source" required><option>Kitchen tally</option><option>Attendance register</option><option>Manual manager entry</option></select></label></div><button class="primary-button" type="submit">Save service record</button></form></article>
+        <article class="panel page-panel"><div class="panel-heading"><div><h2>Saved service records</h2><p>Records persist between visits and stay linked to each meal service.</p></div></div><div class="table-scroll"><table class="data-table"><thead><tr><th>Campus</th><th>Service date</th><th>Service</th><th>Cuisine / dishes</th><th>Forecast</th><th>Actual</th><th>Prepared</th><th>Leftover</th><th>Source</th><th>Recorded (IST)</th></tr></thead><tbody id="collection-records"><tr class="empty-row"><td colspan="10">No records saved yet.</td></tr></tbody></table></div><p class="table-note">Saved operational records are shown with India Standard Time.</p></article>
+      </section>
+
+      <section class="app-view" id="cost-management" aria-labelledby="cost-management-title">
+        <div class="page-heading"><div><p class="eyebrow">DATA MANAGEMENT</p><h1 id="cost-management-title">Cost management</h1><p class="subheading">Turn avoidable leftovers into a measured savings plan and purposeful reinvestment.</p></div><span class="demo-label" id="cost-data-label">MEASURED WASTE ONLY</span></div>
+        <article class="panel page-panel cost-controls"><div class="panel-heading"><div><h2>Set the working cost</h2><p>Use your blended ingredient and preparation cost per kilogram.</p></div><span class="timeline-note">Manager estimate</span></div><div class="cost-control-row"><label for="cost-per-kg">Cost per kg (₹)<input id="cost-per-kg" type="number" min="0" step="1" value="120"></label><label for="cost-period">Review window<select id="cost-period"><option value="30">Last 30 days</option><option value="60">Last 60 days</option><option value="90">Last 90 days</option></select></label><button class="primary-button" id="refresh-cost-plan" type="button">Update plan</button></div><p class="table-note" id="cost-plan-note">Only avoidable waste is counted as recoverable budget. Non-avoidable leftovers remain visible for operational review.</p></article>
+        <div class="kpi-grid page-metrics cost-kpis">
+          <article class="kpi-card"><div class="kpi-top"><span>Avoidable waste</span><span class="metric-context">MEASURED</span></div><strong class="kpi-value"><span id="cost-avoidable-kg">—</span> <small>kg</small></strong><span class="kpi-note muted" id="cost-avoidable-note">Waiting for records</span></article>
+          <article class="kpi-card"><div class="kpi-top"><span>Value in review window</span><span class="metric-context">ESTIMATE</span></div><strong class="kpi-value">₹<span id="cost-window-value">—</span></strong><span class="kpi-note muted">Avoidable portion only</span></article>
+          <article class="kpi-card"><div class="kpi-top"><span>Projected monthly recovery</span><span class="metric-context">RUN RATE</span></div><strong class="kpi-value">₹<span id="cost-monthly-value">—</span></strong><span class="kpi-note positive">If the measured rate holds</span></article>
+          <article class="kpi-card"><div class="kpi-top"><span>Service records</span><span class="metric-context">REVIEW WINDOW</span></div><strong class="kpi-value" id="cost-service-count">—</strong><span class="kpi-note muted" id="cost-service-note">Measured services</span></article>
+        </div>
+        <article class="panel page-panel"><div class="panel-heading"><div><h2>Reinvestment plan</h2><p id="cost-recommendation">Save measured dish-level waste records to unlock a cost and reinvestment plan.</p></div><span class="demo-label">MANAGER REVIEW</span></div><div class="reinvestment-grid" id="reinvestment-grid"><div class="reinvestment-empty">No measured savings are available yet.</div></div></article>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+"""MessMind FastAPI backend package."""
